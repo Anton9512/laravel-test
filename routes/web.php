@@ -3,7 +3,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\MyPosts;
+use App\Http\Controllers\MyPostsController;
 
 
 Route::get('/', function () {
@@ -11,5 +11,5 @@ Route::get('/', function () {
 });
 
 
-Route::get('/posts', [MyPosts::class, 'index']);
+Route::get('/posts', [MyPostsController::class, 'index']);
 
