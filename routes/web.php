@@ -12,4 +12,5 @@ Route::get('/', function () {
 
 
 Route::get('/posts', [MyPostsController::class, 'index']);
+Route::get('/posts/create', [MyPostsController::class, 'create']);
 
