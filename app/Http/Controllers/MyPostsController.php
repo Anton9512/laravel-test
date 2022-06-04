@@ -62,4 +62,45 @@ class MyPostsController extends Controller {
         $post->restore();
         dd('deleted');
     }
+
+    // достать элемент, если нет - то создать
+    //firstOrCreate
+    //updateOrCreate
+
+    public function firstOrCreate() {
+
+        $anotherPost = [
+            'title' => 'another post',
+            'content' => 'another content',
+            'image' => 'another image',
+            'likes' => 500,
+            'is_published' => 1,
+        ];
+        $post = Post::firstOrCreate([
+            'title' => 'another post',
+        ],[
+            'title' => 'another post',
+            'content' => 'another content',
+            'image' => 'another image',
+            'likes' => 500,
+            'is_published' => 1,
+        ]);
+        dump($post->content);
+    }
+
+    public function updateOrCreate()
+    {
+        $anotherPost = [
+            'title' => 'updateOrCreate post',
+            'content' => 'updateOrCreate another content',
+            'image' => 'updateOrCreate another image',
+            'likes' => 900,
+            'is_published' => 1,
+        ];
+
+        $post = Post::updateOrCreate([
+            'title' => 'updateOrCreate post',
+        ],$anotherPost);
+    }
+
 }
